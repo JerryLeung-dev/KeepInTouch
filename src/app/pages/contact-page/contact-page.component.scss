@@ -1,0 +1,19 @@
+.page-container {
+  display: flex;
+  min-height: 100%;
+  height: auto;
+  &> * {
+    flex : 1 1 auto;
+  }
+
+  &__small-column {
+    width: 25vw;
+    // min-width: 20rem;
+  }
+  &__big-column {
+    width: 75vw;
+    // min-width: 20rem;
+  }
+}
+
+

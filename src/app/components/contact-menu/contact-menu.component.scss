@@ -1,4 +1,4 @@
-.contact-list {
+.item-list {
   &__header {
     font-weight: 500;
     font-size: 1.8rem;
@@ -9,18 +9,42 @@
   }
 }
 
-.contact-details {
+.item {
+  &__name {
+    font-size: 2rem;
+  }
+
+  &:hover {
+    background-color: var(--color-grey-light-2);
+  }
+  cursor: pointer;
+  background-color: var(--color-grey-light-1);
+
+}
+
+.item-details {
   display: flex;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
+
+  color: var(--color-grey-dark-1);
+
   &__method {
     display: flex;
     align-items: center;
-    padding-right: 3rem;
+    padding: .5rem .3rem;
+    flex: 1 1 auto;
   }
+
   &__icon {
-    margin-right:.5rem;
+    margin-right:1rem;
     font-size: 1.5rem;
-    color: #77C7D9;
+    color: var(--color-primary);
   }
 }
-//TODO: add custom scroll bar
+
+.selected {
+  box-sizing:initial;
+  border-right: .5rem solid var(--color-primary);
+}
+

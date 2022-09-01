@@ -15,6 +15,11 @@ import { ContactMenuComponent } from './components/contact-menu/contact-menu.com
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { CompanyCardComponent } from './components/company-card/company-card.component';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 registerLocaleData(en);
 
 @NgModule({
@@ -23,6 +28,7 @@ registerLocaleData(en);
     ContactDetailComponent,
     ContactMenuComponent,
     ContactPageComponent,
+    CompanyCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,10 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzListModule,
     NzIconModule,
+    NzSpinModule,
+    NzCardModule,
+    NzDividerModule,
+    NzTagModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

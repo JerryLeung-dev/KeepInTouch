@@ -1,1 +1,97 @@
-<p>contact-detail works!</p>
+<div class="container">
+  <nz-card class="item-card">
+    <div class="item-card__name">
+      {{ item.name }}
+    </div>
+    <nz-divider
+      nzText="Basic info"
+      nzOrientation="left"
+      class="divider"
+    ></nz-divider>
+    <div class="item-card__line">
+      <div class="item-card__box">
+        <div class="item-card__title item-card__title--left">Phone</div>
+        <div class="item-card__data item-card__data--left">
+          <span
+            nz-icon
+            nzType="mobile"
+            nzTheme="outline"
+            class="item-card__icon"
+          ></span>
+          {{ item.phone }}
+        </div>
+      </div>
+      <div class="item-card__box">
+        <div class="item-card__title">Email</div>
+        <div class="item-card__data">
+          <span
+            nz-icon
+            nzType="mail"
+            nzTheme="outline"
+            class="item-card__icon"
+          ></span>
+          {{ item.email }}
+        </div>
+      </div>
+    </div>
+    <div class="item-card__line">
+      <div class="item-card__box">
+        <div class="item-card__title item-card__title--left">User name</div>
+        <div class="item-card__data item-card__data--left">
+          <span
+            nz-icon
+            nzType="user"
+            nzTheme="outline"
+            class="item-card__icon"
+          ></span>
+          {{ item.username }}
+        </div>
+      </div>
+      <div class="item-card__box">
+        <div class="item-card__title">Website</div>
+        <div class="item-card__data">
+          <span
+            nz-icon
+            nzType="chrome"
+            nzTheme="outline"
+            class="item-card__icon"
+          ></span>
+          {{ item.website }}
+        </div>
+      </div>
+    </div>
+    <nz-divider
+      nzText="Location"
+      nzOrientation="left"
+      class="divider"
+    ></nz-divider>
+    <div class="item-card__line">
+      <div class="item-card__box">
+        <div class="item-card__title">Address</div>
+        <div class="item-card__data">
+          <span
+            nz-icon
+            nzType="home"
+            nzTheme="outline"
+            class="item-card__icon"
+          ></span>
+          {{ contactAddress }}
+        </div>
+      </div>
+      <!-- TODO: Google geographic location -->
+    </div>
+    <nz-divider
+      nzText="Workplace"
+      nzOrientation="left"
+      class="divider"
+    ></nz-divider>
+    <div class="item-card__line">
+      <div class="item-card__box">
+        <div class="item-card__title">Company</div>
+        <div class="item-card__data">
+          <app-company-card [item]="item.company"></app-company-card>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</div>

@@ -1,1 +1,11 @@
-<app-contact-menu [contacts]="contacts"></app-contact-menu>
+<div class="page-container">
+  <app-contact-menu
+    [items]="contacts"
+    (itemSelected)="updateContent($event)"
+    class="page-container__small-column"
+  ></app-contact-menu>
+  <app-contact-detail
+    [item]="selectedContact"
+    class="page-container__big-column"
+  ></app-contact-detail>
+</div>

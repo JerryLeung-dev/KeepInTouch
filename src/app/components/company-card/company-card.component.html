@@ -1,0 +1,11 @@
+<nz-card class="item-card" [nzTitle]="titleTemplate">
+  <ng-container *ngFor="let catPhrase of catchPhrases; index as i">
+    <nz-tag class="item-card__tag" [nzColor]="getColor(i)">{{
+      catPhrase
+    }}</nz-tag>
+  </ng-container>
+</nz-card>
+<ng-template #titleTemplate>
+  <span nz-icon nzType="bank" nzTheme="outline" class="item-card__icon"></span>
+  {{ item.name }}
+</ng-template>

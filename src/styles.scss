@@ -1,3 +1,6 @@
+@import "styles/variables.scss";
+@import "styles/scrollbar.scss";
+
 *,
 *::before,
 *::after {
@@ -8,15 +11,13 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; }
-//   @media only screen and (max-width: 75em) {
-//     html {
-//       font-size: 50%;
-//     }
-// }
+  font-size: 62.5%; //1rem=10px, 10/16=62.5px;
+  @media only screen and (max-width: var(--bp-large)) {
+    font-size: 50%;
+  }
+}
 
 body {
-  font-family: "Nunito";
   color: #6D5D4B;
   font-weight: 300;
   line-height: 1.6;

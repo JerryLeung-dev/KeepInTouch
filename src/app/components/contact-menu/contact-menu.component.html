@@ -1,29 +1,36 @@
-<ul nz-list [nzDataSource]="contacts" nzBordered nzSize="large">
-  <nz-list-header class="contact-list__header">Contacts</nz-list-header>
-  <li nz-list-item *ngFor="let contact of contacts" nzNoFlex>
+<ul nz-list [nzDataSource]="items" nzBordered nzSize="large">
+  <nz-list-header class="item-list__header">Contact book</nz-list-header>
+  <li
+    nz-list-item
+    *ngFor="let item of items"
+    nzNoFlex
+    (click)="selectItem(item.id)"
+    [class.selected]="isSelected(item.id)"
+    class="item"
+  >
     <nz-list-item-meta>
       <nz-list-item-meta-title>
-        <h3>{{ contact.name }}</h3>
+        <h3 class="item__name">{{ item.name }}</h3>
       </nz-list-item-meta-title>
       <nz-list-item-meta-description>
-        <div class="contact-details">
-          <div class="contact-details__method">
+        <div class="item-details">
+          <div class="item-details__method">
             <span
               nz-icon
               nzType="mobile"
               nzTheme="outline"
-              class="contact-details__icon"
+              class="item-details__icon"
             ></span>
-            {{ contact.phone }}
+            {{ item.phone }}
           </div>
-          <div class="contact-details__method">
+          <div class="item-details__method">
             <span
               nz-icon
               nzType="mail"
               nzTheme="outline"
-              class="contact-details__icon"
+              class="item-details__icon"
             ></span>
-            {{ contact.email }}
+            {{ item.email }}
           </div>
         </div>
       </nz-list-item-meta-description>

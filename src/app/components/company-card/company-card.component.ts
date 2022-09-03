@@ -15,9 +15,11 @@ import { CompanyInfo } from 'src/app/viewModels/contact-dto';
 })
 export class CompanyCardComponent implements OnInit, OnChanges {
   @Input() item!: CompanyInfo;
-
+  @Input() dayMode = true;
+  @Input() displayCard = true;
   catchPhrases: string[] = [];
-  colors = ['orange', 'green', 'purple'];
+  colors = ['orange', 'green', 'purple', 'gold', 'geekblue'];
+
   constructor() {}
 
   ngOnInit(): void {}

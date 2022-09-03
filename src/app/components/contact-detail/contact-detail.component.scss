@@ -1,13 +1,16 @@
+@use 'src/styles/variables' as v;
+
 .container {
   display: flex;
   justify-content: center;
   min-height: 100%;
 
-  background-color: var(--color-primary--light);
+  background-color: var(--color-primary);
 }
 
 .item-card {
   width: 85%;
+  height: calc(100% - 200px);
   border-radius: 1rem;
   margin: 5rem 0;
 
@@ -15,12 +18,20 @@
   box-shadow: var(--shadow-light);
 
   font-size: 1.6rem;
+  @media only screen and (max-width: v.$bp-small-medium) {
+    width:95%;
+    margin: 2rem 0;
+  }
 
   &__name {
     font-size: 3.6rem;
     font-weight: 500;
-    margin-bottom: 6rem;
     margin-left: 5rem;
+
+    @media only screen and (max-width: v.$bp-small-medium) {
+      margin-left: 2rem;
+      font-size: 2.4rem;
+    }
   }
 
   &__line {
@@ -28,6 +39,17 @@
     display: flex;
     justify-content: center;
     margin: auto;
+
+    @media only screen and (max-width: v.$bp-largest) {
+      font-size: 85%;
+    }
+    @media only screen and (max-width: v.$bp-large) {
+      flex-direction: column;
+    }
+    @media only screen and (max-width: v.$bp-small-medium) {
+      width: 95%;
+    }
+
   }
 
   &__box {
@@ -35,10 +57,40 @@
     display: flex;
     align-items: center;
     padding: 2rem 1rem;
+
+    @media only screen and (max-width: v.$bp-small-medium) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    > * {
+      @media only screen and (max-width: v.$bp-small-medium) {
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   &__data {
     flex: 3;
+
+    @media only screen and (max-width: v.$bp-smallest) {
+      font-size: 1.2rem;
+    }
+
+    &--address {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media only screen and (max-width: v.$bp-medium) {
+        flex-direction: column;
+      }
+       & > * {
+        @media only screen and (max-width: v.$bp-medium) {
+          margin-bottom: 1rem;
+        }
+
+       }
+    }
   }
 
   &__title {
@@ -52,11 +104,55 @@
     margin-right: .8rem;
     font-size: 2.2rem;
     color: var(--color-primary);
+
+    @media screen and (max-width:v.$bp-small) {
+      display: none;
+    }
   }
 
   .divider {
     color: var(--color-secondary--light);
     margin: 3rem 0;
   }
-
 }
+
+.link {
+  text-decoration: underline;
+  margin-top: .5rem;
+}
+
+.flex-wrap {
+  display: flex;
+}
+
+//Night mode setup
+.night-mode {
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-3);
+}
+
+.container.night-mode {
+  background-color: var(--color-grey-dark-1);
+}
+
+nz-divider.night-mode {
+  border:none;
+}
+
+// .email {
+//   white-space:inherit;
+//   overflow: auto;
+
+// }
+
+// .hidden-text {
+//   display:block;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   width: 10rem;
+// }
+
+
+
+

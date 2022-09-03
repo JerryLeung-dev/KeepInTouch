@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ContactDTO } from 'src/app/viewModels/contact-dto';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/';
 
@@ -14,13 +15,32 @@ export class ContactPageComponent implements OnInit {
   selectedContact!: ContactDTO;
 
   isLoading = false;
+  isCollapsed!: boolean;
+  isDay = true;
+  siderWidth = 300;
 
-  constructor(private http: HttpClient) {}
+  get dayMode() {
+    return this.isDay ? 'light' : 'dark';
+  }
+
+  get triggerIconType() {
+    console.log(this.isCollapsed);
+    return this.isCollapsed ? 'menu-fold' : 'menu-unfold';
+  }
+
+  constructor(
+    private http: HttpClient,
+    private readonly observer: BreakpointObserver
+  ) {}
 
   async ngOnInit() {
     await this.getContactsFromAPI();
     //Default selected contact is the first one
     this.selectedContact = this.contacts[0];
+
+    this.observer.observe(['(max-width: 520px)']).subscribe((res) => {
+      if (res.matches) this.siderWidth = 150;
+    });
   }
 
   private async getContactsFromAPI() {
@@ -42,7 +62,6 @@ export class ContactPageComponent implements OnInit {
   }
 
   async updateContent(contactID: number) {
-    console.log(contactID);
     try {
       this.isLoading = true;
       await this.getContactFromAPI(contactID);
@@ -55,5 +74,13 @@ export class ContactPageComponent implements OnInit {
     while (this.isLoading) {
       return;
     }
+  }
+
+  handleModeChange(checked: boolean) {
+    this.isDay = !this.isDay;
+  }
+
+  handleSiderChange(event: any) {
+    console.log(event);
   }
 }

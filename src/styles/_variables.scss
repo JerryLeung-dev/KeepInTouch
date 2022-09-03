@@ -13,22 +13,21 @@
   --color-grey-light-3: #f0eeee;
   --color-grey-light-4: #ccc;
 
-  --color-grey-dark-1: #333;
+  --color-grey-dark-1: #1b1b1b;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
 
   --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
   --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
-
-  //Breakpoints
-  --bp-largest: 75em;     // 1200px
-  --bp-large: 68.75em;    // 1100px
-  --bp-medium: 56.25em;   // 900px
-  --bp-small: 37.5em;     // 600px
-  --bp-smallest: 31.25em; // 500px
 }
 
-//Breakpoints
+  //Breakpoints
+  $bp-largest: 87.6em;    // 1402px
+  $bp-large: 82.85em;    // 1316px
+  $bp-medium: 59em;   // 945px
+  $bp-small-medium: 45.75em; // 732px
+  $bp-small: 33.25em; // 520px
+  $bp-smallest: 23.75em; //380px
 
 
 

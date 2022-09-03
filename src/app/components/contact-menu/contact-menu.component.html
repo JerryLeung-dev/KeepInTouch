@@ -1,5 +1,12 @@
-<ul nz-list [nzDataSource]="items" nzBordered nzSize="large">
-  <nz-list-header class="item-list__header">Contact book</nz-list-header>
+<ul nz-list [nzDataSource]="items" nzSize="large" [nzBordered]="false">
+  <nz-list-header class="item-list__header">
+    <ng-container *ngIf="dayMode">
+      <img src="/assets/logo.PNG" class="logo" />
+    </ng-container>
+    <ng-container *ngIf="!dayMode">
+      <img src="/assets/logo-dark.PNG" class="logo" />
+    </ng-container>
+  </nz-list-header>
   <li
     nz-list-item
     *ngFor="let item of items"
@@ -7,10 +14,13 @@
     (click)="selectItem(item.id)"
     [class.selected]="isSelected(item.id)"
     class="item"
+    [class.night-mode]="!dayMode"
   >
     <nz-list-item-meta>
       <nz-list-item-meta-title>
-        <h3 class="item__name">{{ item.name }}</h3>
+        <h3 class="item__name" [class.night-mode]="!dayMode">
+          {{ item.name }}
+        </h3>
       </nz-list-item-meta-title>
       <nz-list-item-meta-description>
         <div class="item-details">
@@ -21,7 +31,7 @@
               nzTheme="outline"
               class="item-details__icon"
             ></span>
-            {{ item.phone }}
+            <span [class.night-mode]="!dayMode">{{ item.phone }}</span>
           </div>
           <div class="item-details__method">
             <span
@@ -30,7 +40,7 @@
               nzTheme="outline"
               class="item-details__icon"
             ></span>
-            {{ item.email }}
+            <span [class.night-mode]="!dayMode">{{ item.email }}</span>
           </div>
         </div>
       </nz-list-item-meta-description>

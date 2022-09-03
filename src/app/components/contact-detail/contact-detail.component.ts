@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ContactDTO } from 'src/app/viewModels/contact-dto';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-contact-detail',
@@ -14,29 +15,37 @@ import { ContactDTO } from 'src/app/viewModels/contact-dto';
 })
 export class ContactDetailComponent implements OnInit, OnChanges {
   @Input() item!: ContactDTO;
+  @Input() dayMode = true;
 
   isLoading = true;
+  googleMapURL = 'http://maps.google.com/?q=';
 
-  get contactAddress() {
+  contactAddress!: string;
+  isDesktopMode = true;
+
+  get addressOnMap() {
     if (this.item) {
-      const suite = this.item.address.suite;
-      const street = this.item.address.street;
-      const city = this.item.address.city;
-      const zipcode = this.item.address.zipcode;
-      return `${suite} ${street} ${city} ${zipcode}`;
-    } else {
-      return;
+      return this.googleMapURL + this.contactAddress;
     }
+    return '';
   }
 
-  constructor() {}
+  constructor(private readonly observer: BreakpointObserver) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.observer.observe(['(max-width: 380px)']).subscribe((res) => {
+      if (res.matches) this.isDesktopMode = false;
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     const { item } = changes;
     if (item) {
-      this.isLoading = true;
+      const suite = this.item?.address.suite;
+      const street = this.item?.address.street;
+      const city = this.item?.address.city;
+      const zipcode = this.item?.address.zipcode;
+      this.contactAddress = `${suite} ${street} ${city} ${zipcode}`;
     }
   }
 }

@@ -1,17 +1,21 @@
+@use 'src/styles/variables' as v;
+
 .item-list {
   &__header {
     font-weight: 500;
     font-size: 1.8rem;
-  }
-
-  &__info {
-    margin-top: .8rem;
+    padding: 1.5rem 2.5rem;
+    height: 5.9rem;
   }
 }
 
 .item {
   &__name {
     font-size: 2rem;
+    @media screen and (max-width: v.$bp-small) {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
   }
 
   &:hover {
@@ -19,6 +23,7 @@
   }
   cursor: pointer;
   background-color: var(--color-grey-light-1);
+  padding: 1.5rem 2.5rem;
 
 }
 
@@ -26,8 +31,11 @@
   display: flex;
   align-items: start;
   flex-direction: column;
+  @media screen and (max-width: v.$bp-small) {
+    display: none;
+  }
 
-  color: var(--color-grey-dark-1);
+  // color: var(--color-grey-dark-1);
 
   &__method {
     display: flex;
@@ -44,7 +52,54 @@
 }
 
 .selected {
-  box-sizing:initial;
-  border-right: .5rem solid var(--color-primary);
+  position:relative;
+  background-color: var(--color-grey-light-2);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 12.5%;
+    right: 0;
+    height: 70%;
+    width: 3rem;
+    background-color: var(--color-primary);
+    border-radius: 1rem 0 0 1rem;
+
+    @media screen and (max-width: v.$bp-small-medium) {
+      width: 1rem;
+    }
+  }
 }
 
+.logo {
+  display: block;
+  width: 10rem;
+  height: 3.09rem;
+}
+
+//Night mode setup
+.night-mode {
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-3);
+  &:hover {
+    background-color: var(--color-grey-dark-2);
+  }
+}
+
+h3.night-mode,span.night-mode {
+  background: transparent;
+}
+
+.selected.night-mode {
+  position:relative;
+  background-color: var(--color-grey-dark-2);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: .3rem;
+    background-color: var(--color-primary);
+    border-radius: 1rem 0 0 1rem;
+  }
+}

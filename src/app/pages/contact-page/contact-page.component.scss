@@ -7,13 +7,61 @@
   }
 
   &__small-column {
-    width: 25vw;
-    // min-width: 20rem;
-  }
-  &__big-column {
-    width: 75vw;
-    // min-width: 20rem;
+    min-width: 25rem;
   }
 }
+
+.trigger {
+  font-size: 1.8rem;
+  line-height: 5.6rem;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-align: center;
+}
+
+nz-header {
+  background: #fff;
+  height: 5.8rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 10rem;
+  height: 3.09rem;
+  margin-left: 5rem;
+}
+
+:host::ng-deep .ant-layout-sider-zero-width-trigger {
+  top: 5px;
+}
+
+:host ::ng-deep nz-switch.switch--day-mode .ant-switch-checked {
+  background-color: var(--color-grey-light-3);
+}
+
+:host ::ng-deep nz-switch.switch--night-mode .ant-switch {
+  background-color: var(--color-primary--dark);
+}
+
+nz-sider.night-mode {
+  & > .ant-layout-sider-light .ant-layout-sider-zero-width-trigger {
+    background-color: (--color-primary--dark) !important;
+    color: (--color-grey-light-3) !important;
+  }
+}
+
+nz-switch {
+  margin-left: auto;
+  margin-right: 3rem;
+}
+
+.night-mode {
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-1);
+}
+
 
 

@@ -1,11 +1,29 @@
-<nz-card class="item-card" [nzTitle]="titleTemplate">
+<nz-card
+  class="item-card"
+  [nzTitle]="titleTemplate"
+  [class.night-mode]="!dayMode"
+  *ngIf="displayCard"
+>
+  <div class="flex-wrap">
+    <ng-container *ngFor="let catPhrase of catchPhrases; index as i">
+      <nz-tag class="item-card__tag" [nzColor]="getColor(i)">{{
+        catPhrase
+      }}</nz-tag>
+    </ng-container>
+  </div>
+</nz-card>
+<ng-template #titleTemplate>
+  <span nz-icon nzType="bank" nzTheme="outline" class="item-card__icon"></span>
+  <div class="flex-wrap">
+    <span [class.night-mode]="!dayMode">{{ item.name }}</span>
+  </div>
+</ng-template>
+
+<div *ngIf="!displayCard">
+  <div>{{ item.name }}</div>
   <ng-container *ngFor="let catPhrase of catchPhrases; index as i">
     <nz-tag class="item-card__tag" [nzColor]="getColor(i)">{{
       catPhrase
     }}</nz-tag>
   </ng-container>
-</nz-card>
-<ng-template #titleTemplate>
-  <span nz-icon nzType="bank" nzTheme="outline" class="item-card__icon"></span>
-  {{ item.name }}
-</ng-template>
+</div>

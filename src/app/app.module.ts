@@ -20,6 +20,10 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -42,6 +46,9 @@ registerLocaleData(en);
     NzCardModule,
     NzDividerModule,
     NzTagModule,
+    NzMenuModule,
+    NzLayoutModule,
+    NzSwitchModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

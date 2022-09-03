@@ -15,17 +15,14 @@ import { ContactDTO } from 'src/app/viewModels/contact-dto';
   templateUrl: './contact-menu.component.html',
   styleUrls: ['./contact-menu.component.scss'],
 })
-export class ContactMenuComponent implements OnChanges {
+export class ContactMenuComponent {
   @Input() items!: ContactDTO[];
+  @Input() dayMode = true;
 
   @Output() itemSelected = new EventEmitter<number>();
 
-  selectedID!: number;
+  selectedID = 1;
   constructor() {}
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.items);
-  }
 
   selectItem(contactID: number) {
     this.selectedID = contactID;

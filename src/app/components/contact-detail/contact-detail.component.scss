@@ -118,7 +118,10 @@
 
 .link {
   text-decoration: underline;
-  margin-top: .5rem;
+  @media only screen and (max-width: v.$bp-medium) {
+    margin-top: .5rem;
+  }
+
 }
 
 .flex-wrap {
@@ -138,20 +141,6 @@
 nz-divider.night-mode {
   border:none;
 }
-
-// .email {
-//   white-space:inherit;
-//   overflow: auto;
-
-// }
-
-// .hidden-text {
-//   display:block;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   width: 10rem;
-// }
 
 
 

@@ -24,7 +24,6 @@ export class ContactPageComponent implements OnInit {
   }
 
   get triggerIconType() {
-    console.log(this.isCollapsed);
     return this.isCollapsed ? 'menu-fold' : 'menu-unfold';
   }
 
@@ -40,6 +39,9 @@ export class ContactPageComponent implements OnInit {
 
     this.observer.observe(['(max-width: 520px)']).subscribe((res) => {
       if (res.matches) this.siderWidth = 150;
+      else {
+        this.siderWidth = 300;
+      }
     });
   }
 
@@ -65,8 +67,7 @@ export class ContactPageComponent implements OnInit {
     try {
       this.isLoading = true;
       await this.getContactFromAPI(contactID);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
     } finally {
       this.isLoading = false;
     }
@@ -78,9 +79,5 @@ export class ContactPageComponent implements OnInit {
 
   handleModeChange(checked: boolean) {
     this.isDay = !this.isDay;
-  }
-
-  handleSiderChange(event: any) {
-    console.log(event);
   }
 }

@@ -1,27 +1,39 @@
 # KeepInTouch
+Live demo: https://keep-in-touch-43608.web.app/
+
+The project runs on nodejs. Make sure you install nodejs (version 16.x) https://nodejs.org/en/.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
 
-## Development server
+TECH STACK
+- Front end: Angular
+- UI library: Antd Design
+- Deployed on Firebase
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+FEATURES
+- Display a list of contacts (mockup data: https://jsonplaceholder.typicode.com/users)
+- Clicking into each contact displays detailed contact information
+- Toggle day/night mode
+- Responsive layout
 
-## Code scaffolding
+//INSTRUCTION
+INSTALL DEPENDENCIES:
+- npm install 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+RUN
+- npm run start
+  
+BUILD AND DEPLOY 
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Go to Firebase and create an account or use your existing account (https://firebase.google.com/)
+- Create a project on Firebase
+- Install Firebase CLI (https://firebase.google.com/docs/cli?authuser=0)
+- In your command prompt, run firebase login
+- Follow the steps:
+  + Choosing hosting service
+  + public directory: dist/keep-in-touch
+  + No Github Acions deploy
+- Delete dist folder in the project
+- ng build (production build)
+- firebase deploy
+ 
